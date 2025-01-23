@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">aprendiendo xml 2</string>
+
+    <string name="feat_login_welcome">Welcome to SocialNetwork</string>
+    <string name="feat_login_subtitle">Please Sign-in to Continue</string>
+
+    <string name="feat_search_friends">Search a friend</string>
+</resources>
