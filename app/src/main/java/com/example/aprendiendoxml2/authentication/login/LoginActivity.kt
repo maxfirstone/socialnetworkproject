@@ -1,7 +1,6 @@
 package com.example.aprendiendoxml2.authentication.login
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -9,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.aprendiendoxml2.R
-import com.example.aprendiendoxml2.searchFriends.SearchFriends
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
