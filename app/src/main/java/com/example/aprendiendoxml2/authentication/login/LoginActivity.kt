@@ -29,7 +29,11 @@ class LoginActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.state.collectLatest {
                 if (it.isSuccess) {
-
+                    Toast.makeText(
+                        this@LoginActivity,
+                        getString(R.string.feat_login_CredentialsCorrect),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 it.error?.let {
                     Toast.makeText(

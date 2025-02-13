@@ -38,4 +38,5 @@
     <string name="feat_feed_post_text">Text of the post</string>
     <string name="feat_main_feed">Feed</string>
     <string name="feat_login_incorrectCredentials">Credenciales Incorrectas!</string>
+    <string name="feat_login_CredentialsCorrect">Credentials Correct!</string>
 </resources>
