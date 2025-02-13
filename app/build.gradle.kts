@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -37,6 +38,21 @@ android {
 
 dependencies {
 
+    // View Model
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.extensions)
+    implementation (libs.androidx.activity)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx.v220)
+    // Glide, Ksp
+    implementation (libs.glide)
+    implementation (libs.ksp)
+
+    // Retrofit Implementation
+
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    implementation(libs.squareup.okhttp)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

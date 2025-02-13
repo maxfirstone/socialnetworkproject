@@ -4,13 +4,24 @@
     <style name="TheSocialNetwork" />
 
     <style name="TheSocialNetwork.TextStyle">
-        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textSize">@dimen/text_size_small</item>}
 
     </style>
 
     <style name="TheSocialNetwork.TextStyle.Title">
         <item name="android:textSize">@dimen/text_size_big</item>
-        <item name="android:textColor">@color/textTitlePrimary</item>
+        <item name="android:textColor">@color/textLink</item>
+    </style>
+
+    <style name="TheSocialNetwork.TextStyle.Post">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TheSocialNetwork.TextStyle.Link">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/textLink</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

@@ -7,6 +7,35 @@
     <string name="feat_search_friends">Search a friend</string>
 
     <string name="feat_main_hello_world">Hello World!</string>
-
     <string name="feat_main_goodbye_world">Good Bye World!</string>
+
+    <string name="feat_login_new_to_the_social_network">New to The Social Network?</string>
+    <string name="feat_login_register">Register</string>
+    <string name="feat_login_google">Login with Google</string>
+    <string name="feat_login_or">OR</string>
+    <string name="feat_login">Login</string>
+    <string name="feat_login_forgot_password">Forgot Password?</string>
+    <string name="feat_login_hint_password">Password</string>
+    <string name="feat_login_email_input_layout">Email</string>
+    <string name="feat_login_title">LOGIN</string>
+    <string name="feat_main_login">Login</string>
+
+
+    <string name="feat_resetPassword_newPassword">New Password</string>
+    <string name="feat_resetPassword_resetPassword">Reset Password</string>
+    <string name="feat_resetPassword_confirmNewPassword">New Password Confirm</string>
+
+
+    <string name="feat_forgotPassword_emailInput">Email</string>
+    <string name="feat_forgotPassword_recoveryPasswordButton">Recovery Password</string>
+
+
+    <string name="feat_search_friends_title">Buscar Amigos</string>
+
+
+    <string name="feat_feed_content_description_post_image">Profile Photo</string>
+    <string name="feat_feed_post_username">Username</string>
+    <string name="feat_feed_post_text">Text of the post</string>
+    <string name="feat_main_feed">Feed</string>
+    <string name="feat_login_incorrectCredentials">Credenciales Incorrectas!</string>
 </resources>
