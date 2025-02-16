@@ -2,7 +2,6 @@ package com.example.aprendiendoxml2.authentication.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.aprendiendoxml2.WebServices
 import com.example.aprendiendoxml2.authentication.shared.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,13 +24,13 @@ class LoginViewModel(
     fun login(email: String, password: String) {
         if (email.isEmpty() || password.isEmpty()) {
             _state.value = _state.value.copy(
-                error = RuntimeException("Credenciales Incorrectas!")
+                error = RuntimeException("Campos Vacios!")
             )
         } else {
             viewModelScope.launch(Dispatchers.IO) {
                 val token = authRepository.login(email.trim().lowercase(), password.trim())
                 if (token == null) {
-                    println("Error the token is null")
+                    println("Error, the token is null")
                 } else {
                     println("Token: $token")
                 }

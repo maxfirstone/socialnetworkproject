@@ -49,8 +49,14 @@ dependencies {
 
     // Retrofit Implementation
 
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
+    //implementation(libs.retrofit.v2110)
+    //implementation("com.squareup.retrofit2:converter-gson")
+    //implementation (libs.retrofit.v240)
+    //implementation (libs.gson)
+    implementation ("com.squareup.retrofit2:retrofit:(2.11.0)")
+    implementation(libs.retrofit2.converter.gson)
+    //implementation (libs.retrofit)
+    //implementation (libs.converter.gson)
 
     implementation(libs.squareup.okhttp)
     implementation(libs.androidx.core.ktx)
