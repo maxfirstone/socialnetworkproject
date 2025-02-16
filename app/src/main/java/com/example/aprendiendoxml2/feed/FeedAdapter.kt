@@ -23,9 +23,8 @@ class FeedAdapter (
         fun bind(post: Post) {
             postTextView.text = post.text
             creatorTextView.text = post.creator.user.fullName
-            // Glide imagen
 
-
+            // Glide image
             Glide.with(profilePictureImageView.context)
                 .load(post.creator.user.profilePicture)
                 .placeholder(R.drawable.ic_launcher_foreground)
