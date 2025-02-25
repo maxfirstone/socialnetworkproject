@@ -1,52 +1,96 @@
 package com.example.aprendiendoxml2.feed
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.aprendiendoxml2.Post
+import com.example.aprendiendoxml2.PostType
 import com.example.aprendiendoxml2.R
+import com.example.aprendiendoxml2.databinding.ItemPostBinding
+import com.example.aprendiendoxml2.databinding.ItemPostImageBinding
 
-class FeedAdapter (
-    private val posts : List<Post>
-) : RecyclerView.Adapter<FeedAdapter.PostViewHolder>() {
+class FeedAdapter(
+    private val posts: List<Post> = emptyList()
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        private val profilePictureImageView = view.findViewById<ImageView>(R.id.profilePicture)
-        private val creatorTextView = view.findViewById<TextView>(R.id.creator)
-        private val postTextView = view.findViewById<TextView>(R.id.post)
-
+    class TextPostViewHolder(private val binding: ItemPostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
-            postTextView.text = post.text
-            creatorTextView.text = post.creator.user.fullName
+            post.text?.let { text ->
+                binding.post.text = text
+            }
 
-            // Glide image
-            Glide.with(profilePictureImageView.context)
-                .load(post.creator.user.profilePicture)
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_foreground)
-                .into(profilePictureImageView)
+            post.creator?.user?.profilePicture?.let {
+                // Glide image
+                Glide.with(itemView.context)
+                    .load(post.creator.user.profilePicture)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .error(R.drawable.ic_launcher_foreground)
+                    .into(binding.profilePicture)
+            }
+            post.creator?.user?.fullName?.let { fullName ->
+                binding.creator.text = fullName
+            }
 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-       return PostViewHolder(view)
+    class ImagePostViewHolder(private val binding: ItemPostImageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(post: Post) {
+            post.text?.let { text ->
+                binding.post.text = text
+            }
+
+            post.creator?.user?.profilePicture?.let {
+                // Glide image
+                Glide.with(itemView.context)
+                    .load(post.creator.user.profilePicture)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .error(R.drawable.ic_launcher_foreground)
+                    .into(binding.profilePicture)
+            }
+            post.creator?.user?.fullName?.let { fullName ->
+                binding.creator.text = fullName
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        // En lugar de inflar una vista, lo que vamos a hacer es vincular una vista, con el mismo layou_inflater
+        when (viewType) {
+            (PostType.Text.ordinal) -> {
+                val binding =
+                    ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return TextPostViewHolder(binding)
+            }
+
+            (PostType.Image.ordinal) -> {
+                val binding =
+                    ItemPostImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return ImagePostViewHolder(binding)
+            }
+
+            else -> throw IllegalArgumentException("Tipo de vista no válido: $viewType")
+        }
     }
 
     override fun getItemCount(): Int {
         return posts.size
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val post = posts[position]
-        holder.bind(post)
+        when (holder) {
+            is TextPostViewHolder -> holder.bind(post)
+            is ImagePostViewHolder -> holder.bind(post)
+            else -> throw IllegalArgumentException("Tipo de ViewHolder no válido")
+        }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return posts[position].type.ordinal
+    }
 }

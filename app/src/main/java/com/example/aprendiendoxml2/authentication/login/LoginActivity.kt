@@ -1,14 +1,17 @@
 package com.example.aprendiendoxml2.authentication.login
 
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.aprendiendoxml2.R
-import com.google.android.material.textfield.TextInputEditText
+import com.example.aprendiendoxml2.databinding.ActivityLoginBinding
+import com.example.aprendiendoxml2.feed.FeedActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -16,41 +19,60 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
 
     private val viewModel: LoginViewModel by viewModels()
+    private lateinit var binding: ActivityLoginBinding
+    //private var binding: ActivityLoginBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        loginButton.setOnClickListener { handleLogin() }
+        //val loginButton = findViewById<Button>(R.id.loginButton)
+        binding.loginButton.setOnClickListener { handleLogin() }
 
         lifecycleScope.launch {
-            viewModel.state.collectLatest {
-                if (it.isSuccess) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        getString(R.string.feat_login_CredentialsCorrect),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                it.error?.let {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        getString(R.string.feat_login_incorrectCredentials),
-                        Toast.LENGTH_SHORT
-                    ).show()
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collectLatest { state ->
+                    invalidate(state)
                 }
             }
         }
 
+
+    }
+
+    private fun invalidate(state: LoginState) {
+        if (state.isLoading) {
+            Toast.makeText(
+                this,
+                R.string.feat_login_loading,
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            // cancelar dialogo de cargando
+            Toast.makeText(
+                this,
+                "No esta cargando",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (state.error != null) {
+            Toast.makeText(
+                this,
+                getString(R.string.feat_login_error, state.error.toString()),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (state.token != null) {
+            val intent = Intent(this, FeedActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun handleLogin() {
-        val emailField = findViewById<TextInputEditText>(R.id.email)
-        val passwordField = findViewById<TextInputEditText>(R.id.password)
-
-        val email = emailField.text.toString()
-        val password = passwordField.text.toString()
+        val email = binding.email.text.toString()
+        val password = binding.password.text.toString()
 
         viewModel.login(email, password)
     }
@@ -65,11 +87,6 @@ class LoginActivity : AppCompatActivity() {
         super.onPause()
         Toast.makeText(this, "On Pause", Toast.LENGTH_SHORT).show()
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this, "On Destroy", Toast.LENGTH_SHORT).show()
     }
 }
 

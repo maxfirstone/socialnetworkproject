@@ -31,10 +31,10 @@
             android:name=".authentication.forgotPassword.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".authentication.login.LoginActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".authentication.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

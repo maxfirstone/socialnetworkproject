@@ -8,6 +8,10 @@ android {
     namespace = "com.example.aprendiendoxml2"
     compileSdk = 35
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.aprendiendoxml2"
         minSdk = 24
@@ -19,6 +23,13 @@ android {
     }
 
     buildTypes {
+
+        buildFeatures {
+            buildConfig = true
+        }
+        debug {
+            isDebuggable = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -34,6 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
 
 dependencies {

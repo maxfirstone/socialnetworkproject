@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.aprendiendoxml2.feed.FeedActivity
 import com.example.aprendiendoxml2.authentication.forgotPassword.ForgotPasswordActivity
 import com.example.aprendiendoxml2.authentication.login.LoginActivity
+import com.example.aprendiendoxml2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
