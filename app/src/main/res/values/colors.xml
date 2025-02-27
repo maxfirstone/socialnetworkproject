@@ -5,9 +5,10 @@
 
     <color name="textTitlePrimary">#171B20</color>
 
-    <color name="color_accent">#BAA672</color>
+    <color name="color_accent">#1BFFFF</color>
+    <color name="button_background">#2E3192</color>
 
-    <color name="textLink">#BDAB73</color>
+    <color name="textLink">#FFFFFFFF</color>
     <color name="backgroundColorGoogle">#DFE0E0</color>
     <color name="separator">#C9C9C9</color>
 </resources>

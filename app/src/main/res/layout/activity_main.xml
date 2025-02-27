@@ -5,37 +5,56 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login"
+        style="@style/TheSocialNetwork.Widget.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:background="@drawable/gradient_background_button"
         android:text="@string/feat_main_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/forgotPasswordButton"
+        style="@style/TheSocialNetwork.Widget.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:text="@string/feat_main_goodbye_world"
+        android:background="@drawable/gradient_background_button"
+        android:text="@string/feat_main_forgot_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/feedButton"
+        style="@style/TheSocialNetwork.Widget.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:background="@drawable/gradient_background_button"
         android:text="@string/feat_main_feed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forgotPasswordButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpButton"
+        style="@style/TheSocialNetwork.Widget.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@drawable/gradient_background_button"
+        android:text="@string/feat_main_sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feedButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

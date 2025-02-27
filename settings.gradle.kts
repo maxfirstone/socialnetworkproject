@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "aprendiendo xml 2"
+rootProject.name = "TheSocialNetwrok"
 include(":app")
  

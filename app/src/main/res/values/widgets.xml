@@ -3,18 +3,20 @@
 
     <style name="TheSocialNetwork.Widget" />
 
-    <style name="TheSocialNetwork.Widget.Button">
 
-        <item name="android:background">@drawable/background_login</item>
+    <style name="TheSocialNetwork.Widget.Button">
+        <item name="android:background">@color/button_background</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingEnd">@dimen/padding_button</item>
+        <item name="android:paddingStart">@dimen/padding_button</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/TheSocialNetwork.TextStyle</item>
     </style>
 
-    <style name="TheSocialNetwork.Widget.Button.Google">
 
+    <style name="TheSocialNetwork.Widget.Button.Google">
         <item name="android:background">@drawable/background_login_google</item>
         <item name="android:textColor">@color/textTitlePrimary</item>
         <item name="android:textStyle">bold</item>
@@ -22,7 +24,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/TheSocialNetwork.TextStyle</item>
     </style>
-    
+
+
     <style name="TheSocialNetwork.Widget.TextInputLayout">
         <item name="boxBackgroundColor">@color/white</item>
         <item name="hintEnabled">true</item>

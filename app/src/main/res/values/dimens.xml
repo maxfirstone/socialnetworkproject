@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="space_xlarge">36dp</dimen>
     <dimen name="space_large">24dp</dimen>
     <dimen name="space_medium">16dp</dimen>
     <dimen name="space_small">8dp</dimen>
@@ -9,5 +10,8 @@
     <dimen name="text_size_small">12sp</dimen>
 
     <dimen name="radius_small">12dp</dimen>
-    <dimen name="space_xlarge">36dp</dimen>
+
+    <dimen name="padding_button">36dp</dimen>
+
+    <dimen name="margin_medium">36dp</dimen>
 </resources>

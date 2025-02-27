@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <ImageView
+    <!--  <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/space_large"
         android:contentDescription="null"
         android:scaleType="fitCenter"
         android:src="@drawable/sigma_login"
-        app:layout_constraintBottom_toTopOf="@id/form" />
+        app:layout_constraintBottom_toTopOf="@id/form" /> -->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_large"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="24dp">
 
         <TextView
             android:id="@+id/newTo"
@@ -28,8 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/feat_login_new_to_the_social_network"
-            android:textSize="@dimen/text_size_small"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/register"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -64,9 +67,9 @@
             style="@style/TheSocialNetwork.TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_marginBottom="@dimen/space_small"
             android:text="@string/feat_login_or"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/google"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -91,12 +94,13 @@
             app:layout_constraintStart_toEndOf="@+id/or"
             app:layout_constraintTop_toTopOf="@+id/or" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginButton"
             style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_small"
+            android:background="@drawable/gradient_background_button"
             android:elevation="0dp"
             android:text="@string/feat_login"
             app:layout_constraintBottom_toTopOf="@id/or" />
@@ -127,8 +131,8 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -146,8 +150,8 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,8 +162,8 @@
             android:layout_marginBottom="@dimen/space_large"
             android:text="@string/feat_login_title"
             app:layout_constraintBottom_toTopOf="@id/emailInputLayout"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 

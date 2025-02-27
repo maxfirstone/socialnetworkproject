@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.aprendiendoxml2"
+    namespace = "com.example.thesocialnetwork"
     compileSdk = 35
 
     buildFeatures {
@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.aprendiendoxml2"
+        applicationId = "com.example.thesocialnetwork"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
